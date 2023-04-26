@@ -26,7 +26,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
-          cache: 'maven'
+          #remove cache for testing
+          #cache: 'maven'
       - name: Build and test
         run: mvn test -Dmaven.test.failure.ignore=true -U --no-transfer-progress
         env:
