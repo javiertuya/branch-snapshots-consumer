@@ -26,10 +26,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
-          #remove cache for testing
-          #cache: 'maven'
+          cache: 'maven'
       - name: Build and test
-        run: mvn test -Dmaven.test.failure.ignore=true -U #--no-transfer-progress
+        run: mvn test -U #--no-transfer-progress
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -20,7 +20,7 @@
 	<repositories>
         <repository>
         	<id>github</id>
-        	<url>https://maven.pkg.github.com/javiertuya/*</url>
+        	<url>https://maven.pkg.github.com/javiertuya/branch-snapshots</url>
         	<snapshots>
             	<enabled>true</enabled>
         	</snapshots>
