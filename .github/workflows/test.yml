@@ -29,4 +29,6 @@ jobs:
           cache: 'maven'
       - name: Build and test
         run: mvn test -Dmaven.test.failure.ignore=true -U --no-transfer-progress
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
