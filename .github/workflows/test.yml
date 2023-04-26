@@ -1,0 +1,32 @@
+name: test-all
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**' #avoid duplicates: only run the PR, not the commit
+    tags-ignore:
+      - 'v*' #avoids rerun existing commit on release
+  #commented to avoid duplciate run on pr from local branches
+  #pull_request:
+  #  branches:
+  #    - 'main'
+  workflow_dispatch: #allow manual run
+  
+#permissions:
+#  contents: read
+#  packages: write
+
+jobs:
+  test-java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v3
+      - name: Select Java Version
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+          cache: 'maven'
+      - name: Build and test
+        run: mvn test -Dmaven.test.failure.ignore=true -U --no-transfer-progress
+
