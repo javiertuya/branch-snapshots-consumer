@@ -5,6 +5,6 @@ public class TestDemoConsumer {
 	@Test
 	public void testDemo() {
 		Demo d=new Demo();
-		Assert.assertEquals(3, d.getValue());
+		Assert.assertEquals(3, d.getValue()); //should fail
 	}
 }
